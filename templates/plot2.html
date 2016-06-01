@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Stock visualization</title>
+		<link rel=stylesheet type=text/css href='{{ url_for('static',filename='styles_app.css')}}'>
+
+	</head>
+	<body>
+		<div class=page>
+  			<h1>Graph for {{ticker}}</h1>
+			<div class=metanav>
+				{{ div|safe }}
+				{{ script|safe }}		
+			</div>	
+		</div>
+	</body>
+</html>
