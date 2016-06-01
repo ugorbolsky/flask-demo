@@ -1,0 +1,7 @@
+#!/Users/gorbolskijoleg/Dropbox/4_Data_Incubator/Onboarding/flask-demo/venv/bin/python
+
+import sys
+
+from bokeh.command.bootstrap import main
+
+main(sys.argv)

@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, redirect
-import urllib2
 import json
 import pandas as pd
 from bokeh.charts import TimeSeries
