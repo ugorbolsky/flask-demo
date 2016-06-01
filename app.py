@@ -4,8 +4,6 @@ import pandas as pd
 from bokeh.charts import TimeSeries
 from bokeh.embed import components
 
-
-
 app = Flask(__name__)
 
 @app.route('/')
@@ -43,6 +41,6 @@ def plot_app():
 	#plot = TimeSeries(plotting_data, title="Stock prices, previous 30 days", ylabel='Stock Price', xlabel='Date')
 	#script, div = components(plot)
 	#return render_template('plot.html', ticker=app.ticker,script=script, div=div)
-	return return render_template('plot.html', ticker=ticker)	
+	return render_template('plot.html', ticker=ticker)	
 #if __name__ == '__main__':
 #  app.run(port=33507)
