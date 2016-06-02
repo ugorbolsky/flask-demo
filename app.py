@@ -8,26 +8,24 @@ from bokeh.plotting import figure
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
+ticker = ''
 
 @app.route('/')
 def main():
   return redirect('/index')
 
-
 @app.route('/index', methods=['GET'])
 def index():
   return render_template('index.html')
 
-
 @app.route('/index', methods=['POST'])
 def index2():
-	app.ticker=request.form['ticker']
+	ticker=request.form['ticker']
 	return redirect('/plot_app')
-
 
 @app.route('/plot_app', methods=['GET','POST'])
 def plot_app():
-        tic=app.ticker
+        tic=ticker
 	url='https://www.quandl.com/api/v3/datasets/WIKI/'+tic+'.json?api_key=a5_n4JFYrNmGQcPUrG7d'
 	json_obj= urllib2.urlopen(url)
 	data = json.load(json_obj)
