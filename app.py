@@ -42,5 +42,5 @@ def plot_app():
 	app_script, app_div = components(plot)
 	return render_template('plot.html', ticker=tic, script=app_script, div=app_div)
 
-#if __name__ == '__main__':
-#  app.run(port=33507)
+if __name__ == '__main__':
+  app.run(port=33507)
