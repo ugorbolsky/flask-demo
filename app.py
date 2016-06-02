@@ -31,16 +31,16 @@ def plot_app():
 	data = json.load(json_obj)
 
 	last_month=data['dataset']['data'][0:30]
-	#date=[]
-	#quotes=[]
-	#for i in last_month:
-    	#	date.append(i[0])
-    	#	quotes.append(i[4])
+	date=[]
+	quotes=[]
+	for i in last_month:
+    		date.append(i[0])
+    		quotes.append(i[4])
 
 	#plotting_data=pd.DataFrame({'Quote':quotes}, index=date)
 	#plot = TimeSeries(plotting_data, title="Stock prices, previous 30 days", ylabel='Stock Price', xlabel='Date')
 	#script, div = components(plot)
 	#return render_template('plot.html', ticker=app.ticker,script=script, div=div)
-	return render_template('plot.html', ticker=tic , d=last_month) # , q=str(quotes))	
+	return render_template('plot.html', ticker=tic , d=date) # , q=str(quotes))	
 #if __name__ == '__main__':
 #  app.run(port=33507)
