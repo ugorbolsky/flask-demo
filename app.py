@@ -46,6 +46,5 @@ def plot_app():
 
 	return render_template('plot.html', head =app_head, ticker=tic, script=app_script, div=app_div)
 
-
 if __name__ == '__main__':
   app.run(port=33507)
