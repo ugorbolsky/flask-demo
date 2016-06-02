@@ -40,9 +40,7 @@ def plot_app():
 	plotting_data=pd.DataFrame({'Quote':quotes}, index=date)
 	plot = TimeSeries(plotting_data, title="Stock prices, previous 30 days", ylabel='Stock Price', xlabel='Date')
 	app_script, app_div = components(plot)
-	app_script=str(app_script)
-	app_div=str(app_div)
 	return render_template('plot.html', ticker=tic, script=app_script, div=app_div)
-	#return render_template('plot.html', ticker=tic , d=date) # , q=str(quotes))	
-#if __name__ == '__main__':
-#  app.run(port=33507)
+
+if __name__ == '__main__':
+  app.run(port=33507)

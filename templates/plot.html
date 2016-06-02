@@ -5,13 +5,13 @@
 		<title>Stock visualization</title>
 		<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.11.1.min.css" type="text/css" />		
 		<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.11.1.min.js"></script>
+		{{ script | safe }}
 	</head>
 	<body>
 		<div class=page>
   			<h1>Graph for {{ticker}}</h1>
-			<a href="/index">Back</a></h1>
-		        <p>	{{ div}}</p>
-			<p>{{ script }}</p>
+			<a href="/index">Back</a>
+			{{ div|safe }}
 		</div>
 	</body>
 </html>
