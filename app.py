@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect
 import json
+import urllib2
 import pandas as pd
 from bokeh.charts import TimeSeries
 from bokeh.embed import components
@@ -27,7 +28,7 @@ def index2():
 @app.route('/plot_app', methods=['GET','POST'])
 def plot_app():
 	ticker=app.ticker
-	url='https://www.quandl.com/api/v3/datasets/WIKI/'+ticker+'.json'
+	url='https://www.quandl.com/api/v3/datasets/WIKI/'+ticker+'.json?api_key=a5_n4JFYrNmGQcPUrG7d'
 	json_obj= urllib2.urlopen(url)
 	data = json.load(json_obj)
 
@@ -35,13 +36,14 @@ def plot_app():
 	date=[]
 	quotes=[]
 	for i in last_month:
-    		date.append(i[0])
-    		quotes.append(i[4])
+    		date.insert(0,str(i[0]))
+    		quotes.insert(0,i[4])
 
 	plotting_data=pd.DataFrame({'Quote':quotes}, index=date)
 	plot = TimeSeries(plotting_data, title="Stock prices, previous 30 days", ylabel='Stock Price', xlabel='Date')
 	script, div = components(plot)
 	return render_template('plot.html', ticker=app.ticker,script=script, div=div)
 
-#if __name__ == '__main__':
-#  app.run(port=33507)
+if __name__ == '__main__':
+  app.debug = True
+  app.run(port=33507)
