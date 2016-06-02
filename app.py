@@ -25,7 +25,7 @@ def index2():
 
 @app.route('/plot_app', methods=['GET','POST'])
 def plot_app():
-        tic=ticker
+        tic=request.form['ticker']
 	url='https://www.quandl.com/api/v3/datasets/WIKI/'+tic+'.json?api_key=a5_n4JFYrNmGQcPUrG7d'
 	json_obj= urllib2.urlopen(url)
 	data = json.load(json_obj)
