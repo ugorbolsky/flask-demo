@@ -38,11 +38,11 @@ def plot_app():
 	for i in last_month:
     		date.insert(0,str(i[0]))
     		quotes.insert(0,i[4])
-	plot = figure(title='Data from Quandle WIKI set',y_axis_label='quote, $',x_axis_label='date', x_axis_type='datetime')
-	plot.line(date, quotes)
+	#plot = figure(title='Data from Quandle WIKI set',y_axis_label='quote, $',x_axis_label='date', x_axis_type='datetime')
+	#plot.line(date, quotes)
 
-	#plotting_data=pd.DataFrame({'Quote':quotes}, index=date)
-	#plot = TimeSeries(plotting_data, title="Stock prices, previous 30 days", ylabel='Stock Price', xlabel='Date')
+	plotting_data=pd.DataFrame({'Quote':quotes}, index=date)
+	plot = TimeSeries(plotting_data, title="Stock prices, previous 30 days", ylabel='Stock Price', xlabel='Date')
 	app_script, app_div = components(plot)
 	app_head='<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.11.1.min.css" type="text/css" />\
 <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.11.1.min.js"></script>\
