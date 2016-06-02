@@ -1,16 +1,18 @@
 <!doctype html>
-<html lang="en">
+<html>
 	<head>
 		<meta charset="utf-8">
 		<title>Stock visualization</title>
 	{{head | safe}}
+	{{ script | safe }}
 	</head>
 	<body>
 		<div class=page>
   			<h1>Graph for {{ticker}}</h1>
 			<a href="/index">Back</a>
+			<div class='bokeh'	
 			{{ div|safe }}
-			{{ script | safe }}
+			</div>
 		</div>
 	</body>
 </html>

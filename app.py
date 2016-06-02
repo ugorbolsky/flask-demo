@@ -34,20 +34,18 @@ def plot_app():
 	date=[]
 	quotes=[]
 	for i in last_month:
-    		date.append(i[0])
-    		quotes.append(i[4])
+		date.insert(0,str(i[0]))
+		quotes.insert(0,i[4])    		
 
 	plotting_data=pd.DataFrame({'Quote':quotes}, index=date)
-	plotting_data=plotting_data.sort_index()
 	plot = TimeSeries(plotting_data, title="Stock prices, previous 30 days", ylabel='Stock Price', xlabel='Date')
 	app_script, app_div = components(plot)
-	app_head='<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">\
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">\
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>\
-		<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.11.1.min.css" type="text/css" />\
-                <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.11.1.min.js"></script>'
+	app_head='<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.11.1.min.css" type="text/css" />\
+<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.11.1.min.js"></script>\
+<script type="text/javascript"> Bokeh.set_log_level("info");</script>'
 
 	return render_template('plot.html', head =app_head, ticker=tic, script=app_script, div=app_div)
 
+
 if __name__ == '__main__':
-  app.run(port=33507)
+  app.run()
