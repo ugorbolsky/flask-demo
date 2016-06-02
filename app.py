@@ -37,10 +37,10 @@ def plot_app():
     		date.append(i[0])
     		quotes.append(i[4])
 
-	#plotting_data=pd.DataFrame({'Quote':quotes}, index=date)
-	#plot = TimeSeries(plotting_data, title="Stock prices, previous 30 days", ylabel='Stock Price', xlabel='Date')
-	#script, div = components(plot)
-	#return render_template('plot.html', ticker=app.ticker,script=script, div=div)
-	return render_template('plot.html', ticker=tic , d=date) # , q=str(quotes))	
+	plotting_data=pd.DataFrame({'Quote':quotes}, index=date)
+	plot = TimeSeries(plotting_data, title="Stock prices, previous 30 days", ylabel='Stock Price', xlabel='Date')
+	app_script, app_div = components(plot)
+	return render_template('plot.html', ticker=tic, script=app_script, div=app_div)
+	#return render_template('plot.html', ticker=tic , d=date) # , q=str(quotes))	
 #if __name__ == '__main__':
 #  app.run(port=33507)
