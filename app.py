@@ -41,6 +41,6 @@ def plot_app():
 	#plot = TimeSeries(plotting_data, title="Stock prices, previous 30 days", ylabel='Stock Price', xlabel='Date')
 	#script, div = components(plot)
 	#return render_template('plot.html', ticker=app.ticker,script=script, div=div)
-	return render_template('plot.html', ticker=tic , d=last month) # , q=str(quotes))	
+	return render_template('plot.html', ticker=tic , d=last_month) # , q=str(quotes))	
 #if __name__ == '__main__':
 #  app.run(port=33507)
